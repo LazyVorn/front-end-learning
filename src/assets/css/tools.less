@@ -1,0 +1,50 @@
+@import './global.less';
+// flex布局
+.flexParent(@jc:flex-start,@ai:stretch) {
+  display: flex;
+  justify-content: @jc;
+  align-items: @ai;
+}
+// flex竖直方向排布
+.colParent(@jc:flex-start,@ai:stretch) {
+  display: flex;
+  flex-direction: column;
+  justify-content: @jc;
+  align-items: @ai;
+  & > .fixed {
+    flex-shrink: 0;
+  }
+  & > .auto {
+    height: 1px;
+    flex-grow: 1;
+  }
+}
+// 子元素垂直居中，利用flex
+.vertical(@jc:flex-start) {
+  display: flex;
+  align-items: center;
+  justify-content: @jc;
+}
+// 收起展开动画效果
+.toggle(@height:800px) {
+  max-height: @height;
+  transition: max-height 0.15s ease-in;
+  &.hide {
+    max-height: 0;
+    transition: max-height 0.25s ease-out;
+  }
+}
+// 省略...
+.ellipsis() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+// btn效果的文字
+.btnText(@color:@color-primary) {
+  color:@color;
+  cursor:pointer;
+  &:hover,&.active{
+    text-decoration: underline;
+  }
+}
